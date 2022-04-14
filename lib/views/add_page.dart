@@ -2,10 +2,10 @@ import 'package:tarea/views/screens.dart';
 import 'package:tarea/models/tarea.dart';
 import 'package:tarea/services/remote_service_post.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+import 'dart:developer';
 
 class AddPage extends StatefulWidget {
-  AddPage({Key? key}) : super(key: key);
+  const AddPage({Key? key}) : super(key: key);
 
   @override
   State<AddPage> createState() => _AddPageState();
@@ -18,7 +18,7 @@ class _AddPageState extends State<AddPage> {
   void initState(){
     super.initState();
 
-    postData();
+    //postData();
   }
 
   postData()async{
@@ -89,7 +89,8 @@ class _AddPageState extends State<AddPage> {
                       child: Center(child: Text('Guardar'))
                     ),         
                     onPressed: () {
-                    postData;
+                    postData();
+                    log("Entra al boton");
                     },                 
                   )
                   

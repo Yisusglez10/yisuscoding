@@ -1,10 +1,10 @@
-import 'package:tarea/views/screens.dart';
 import 'package:flutter/material.dart';
 import 'package:tarea/models/tarea.dart';
 import 'package:tarea/services/remote_service.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key? key}) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -50,7 +50,7 @@ class _HomePageState extends State<HomePage> {
               leading: const Icon(Icons.book,
               color: Colors.blue),
               onTap: (){
-                
+                Navigator.pushNamed(context,'infopage');
               },
             );
           }, 

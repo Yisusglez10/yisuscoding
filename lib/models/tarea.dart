@@ -1,13 +1,12 @@
-// To parse this JSON data, do
-//
-//     final get = getFromJson(jsonString);
 import 'dart:convert';
+import 'package:flutter/material.dart';
 
 List<Tarea> getFromJson(String str) => List<Tarea>.from(json.decode(str).map((x) => Tarea.fromJson(x)));
 
 String getToJson(List<Tarea> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-class Tarea {
+//agregué extendes change
+class Tarea with ChangeNotifier {
     Tarea({
         required this.id,
         required this.title,
@@ -33,5 +32,9 @@ class Tarea {
         "is_completed": isCompleted,
         "due_date": "${dueDate.year.toString().padLeft(4, '0')}-${dueDate.month.toString().padLeft(2, '0')}-${dueDate.day.toString().padLeft(2, '0')}",
     };
+
+    //No funciona aún....
+    @override
+    notifyListeners();
 }
 
