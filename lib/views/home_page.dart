@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
             return ListTile(
               title: Text(tareas![index].title),
               subtitle: Text(tareas![index].dueDate.toString()),
-              trailing: const Icon(Icons.arrow_forward_ios_outlined),
+              trailing: tareas![index].isCompleted == 1 ? const Icon(Icons.check,color:Colors.green) : const Icon(Icons.dnd_forwardslash,color: Colors.red,),
               leading: const Icon(Icons.book,
               color: Colors.blue),
               onTap: (){

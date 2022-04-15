@@ -17,7 +17,6 @@ class _AddPageState extends State<AddPage> {
   @override
   void initState(){
     super.initState();
-
     //postData();
   }
 
@@ -29,6 +28,20 @@ class _AddPageState extends State<AddPage> {
       });
     }
   }
+
+  final titleField =  TextEditingController();
+  final isCompletedField = TextEditingController();
+  final dueDateField =TextEditingController();
+  final commentsField =TextEditingController();
+  final descriptionField = TextEditingController();
+  final taskField = TextEditingController();
+
+  String titF = '';
+  String iscF = '';
+  String dueF = '';
+  String comF = '';
+  String desF = '';
+  String tasF = '';
 
   @override
   Widget build(BuildContext context) {
@@ -42,41 +55,66 @@ class _AddPageState extends State<AddPage> {
                 padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 20),
                 child: Column(
                   children:  [
-                  const CustomInputField(
+
+                  TextField(
+                    controller: titleField,
+                    decoration: (const InputDecoration(
                      labelText:'Title',
                      hintText: 'Task Name',
+                      )
+                    ),             
                    ),
                   const  SizedBox(height:30),
 
-                  const CustomInputField(
-                     labelText:'Is Completed',
+                  TextField(
+                     controller: isCompletedField,
+                     decoration: ( const InputDecoration(
+                     labelText :'Is Completed',
                      hintText: '0-1',
                      helperText: 'Completed = 1, No Completed = 0',
+                     )
                    ),
+                  ),
                   const SizedBox(height:30),
 
-                  const  CustomInputField(
+                  TextField(
+                     controller: dueDateField,
+                     decoration: ( const InputDecoration(
                      labelText:'Due Date',
                      hintText: 'YYYY-MM-DD',
+                     )
                    ),
+                  ),
                   const SizedBox(height:30),
 
-                  const CustomInputField(
+                  TextField(
+                    controller: commentsField,
+                    decoration: ( const InputDecoration(
                      labelText:'Comments',
                      hintText: 'Task Comments',
-                   ),
+                      )
+                    ),
+                  ),
                   const SizedBox(height:30),
 
-                  const CustomInputField(
+                  TextField(
+                     controller: descriptionField,
+                     decoration: ( const InputDecoration(
                      labelText:'Description',
                      hintText: 'Task Description',
-                   ),
+                   )
+                   )
+                  ),
                   const SizedBox(height:30),
 
-                  const CustomInputField(
+                  TextField(
+                     controller: taskField,
+                     decoration: ( const InputDecoration(
                      labelText:'Tags',
                      hintText: 'Task Tags',
-                   ),
+                       )
+                     )
+                  ),            
                   const SizedBox(height:30),
 
                   ElevatedButton(
@@ -88,9 +126,9 @@ class _AddPageState extends State<AddPage> {
                       width: double.infinity,
                       child: Center(child: Text('Guardar'))
                     ),         
-                    onPressed: () {
-                    postData();
-                    log("Entra al boton");
+                    onPressed: () {                  
+                    postData();                  
+                    Navigator.pushNamed(context,'homepage');
                     },                 
                   )
                   

@@ -16,7 +16,7 @@ class Tarea with ChangeNotifier {
 
     int id;
     String title;
-    int isCompleted;
+    int? isCompleted;
     DateTime dueDate;
 
     factory Tarea.fromJson(Map<String, dynamic> json) => Tarea(
