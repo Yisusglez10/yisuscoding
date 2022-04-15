@@ -1,14 +1,16 @@
 import 'package:tarea/views/screens.dart';
 import 'package:tarea/models/tarea.dart';
+import 'package:tarea/models/global.dart';
 import 'package:tarea/services/remote_service_post.dart';
 import 'package:flutter/material.dart';
-import 'dart:developer';
+
 
 class AddPage extends StatefulWidget {
   const AddPage({Key? key}) : super(key: key);
 
   @override
   State<AddPage> createState() => _AddPageState();
+  
 }
 
 class _AddPageState extends State<AddPage> {
@@ -29,12 +31,26 @@ class _AddPageState extends State<AddPage> {
     }
   }
 
-  final titleField =  TextEditingController();
-  final isCompletedField = TextEditingController();
-  final dueDateField =TextEditingController();
-  final commentsField =TextEditingController();
-  final descriptionField = TextEditingController();
-  final taskField = TextEditingController();
+
+  // final titleField =  TextEditingController();
+  // final isCompletedField = TextEditingController();
+  // final dueDateField =TextEditingController();
+  // final commentsField =TextEditingController();
+  // final descriptionField = TextEditingController();
+  // final taskField = TextEditingController();
+
+  // @override
+  // void dispose() {
+  //   // Clean up the controller when the widget is disposed.
+  //   titleField.dispose();
+  //   isCompletedField.dispose();
+  //   dueDateField.dispose();
+  //   commentsField.dispose();
+  //   descriptionField.dispose();
+  //   taskField.dispose();
+  //   super.dispose();
+  // }
+
 
   String titF = '';
   String iscF = '';
@@ -57,7 +73,7 @@ class _AddPageState extends State<AddPage> {
                   children:  [
 
                   TextField(
-                    controller: titleField,
+                    controller: GlobalData.titleField,
                     decoration: (const InputDecoration(
                      labelText:'Title',
                      hintText: 'Task Name',
@@ -67,7 +83,7 @@ class _AddPageState extends State<AddPage> {
                   const  SizedBox(height:30),
 
                   TextField(
-                     controller: isCompletedField,
+                     controller: GlobalData.isCompletedField,
                      decoration: ( const InputDecoration(
                      labelText :'Is Completed',
                      hintText: '0-1',
@@ -78,7 +94,7 @@ class _AddPageState extends State<AddPage> {
                   const SizedBox(height:30),
 
                   TextField(
-                     controller: dueDateField,
+                     controller: GlobalData.dueDateField,
                      decoration: ( const InputDecoration(
                      labelText:'Due Date',
                      hintText: 'YYYY-MM-DD',
@@ -88,7 +104,7 @@ class _AddPageState extends State<AddPage> {
                   const SizedBox(height:30),
 
                   TextField(
-                    controller: commentsField,
+                    controller: GlobalData.commentsField,
                     decoration: ( const InputDecoration(
                      labelText:'Comments',
                      hintText: 'Task Comments',
@@ -98,7 +114,7 @@ class _AddPageState extends State<AddPage> {
                   const SizedBox(height:30),
 
                   TextField(
-                     controller: descriptionField,
+                     controller: GlobalData.descriptionField,
                      decoration: ( const InputDecoration(
                      labelText:'Description',
                      hintText: 'Task Description',
@@ -108,7 +124,7 @@ class _AddPageState extends State<AddPage> {
                   const SizedBox(height:30),
 
                   TextField(
-                     controller: taskField,
+                     controller: GlobalData.taskField,
                      decoration: ( const InputDecoration(
                      labelText:'Tags',
                      hintText: 'Task Tags',
